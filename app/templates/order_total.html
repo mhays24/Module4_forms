@@ -3,15 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hey You</title>
+    <title>Document</title>
   </head>
   <body>
-    <form action="{% url 'hey_you' %}" method="GET">
+    <form action="{% url 'order_total' %}" method="GET">
       {{ form.as_p }}
       <button type="submit">Submit</button>
     </form>
-    {% if name %}
-    <p>Hey, {{ name }}!</p>
+    {% if total %}
+    <p> Burgers: {{burgers}} |
+        Fries: {{fries}} |
+        Drinks: {{drinks}} <br>
+        That brings your total to: ${{ total|floatformat:2 }}</p>
     {% endif %}
   </body>
 </html>
