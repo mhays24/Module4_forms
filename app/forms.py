@@ -10,3 +10,8 @@ class OrderTotalForm(forms.Form):
     burgers = forms.IntegerField()
     fries = forms.IntegerField()
     drinks = forms.IntegerField()
+
+
+class FontTimesForm(forms.Form):
+    text = forms.CharField()
+    number = forms.IntegerField()
