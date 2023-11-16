@@ -6,17 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/" method="POST">
-        {% csrf_token %}
-     
-        {{ forms.as_p }}
-
-
-        <button>Sign Up!</button>
+    <form action="{% url 'add' %}" method="GET">
+        {{ form.as_p }}
+        
+        <button>ADD</button>
     </form>
 
-    {% if signup_success %}
-        <p>Sign Up Success!</p>
+    {% if answer is not None %}
+        <p>{{x}} + {{y}} = {{answer}}</p>
     {% endif %}
 </body>
 </html>
