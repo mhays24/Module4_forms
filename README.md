@@ -26,7 +26,7 @@ In this exercise you will create a project that completes a task similar to the 
 
 > For each of the paths bases below, implement the corresponding codingbat challenge as a view. I've created a [codingbat_over_http](./exercises/codingbat_over_http) directory for you to create your project/app in. Arguments should be collected from the path and the response should contain the answer to the challenge. Additionally, you should implement three of the test cases that coding bat provides as test cases in your django app.
 >
-> 1. [ ] `warmup-2/font-times/...` implemented with 3 test cases.
+> 1. [ ] `warmup-2/front-times/...` implemented with 3 test cases.
 > 2. [ ] `logic-2/no-teen-sum/...` implemented with 3 test cases.
 > 3. [ ] `string-2/xyz-there/...` implemented with 3 test cases.
 > 4. [ ] `list-2/centered-average/...` implemented with 3 test cases.

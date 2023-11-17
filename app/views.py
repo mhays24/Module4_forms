@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from app.forms import HeyYouForm, AgeInForm, OrderTotalForm, FontTimesForm
+from app.forms import *
 from django.http import HttpResponse
 from django.http import HttpRequest
 
+def index(request):
+    return render(request, "index.html")
 
 def hey_you(request):
     form = HeyYouForm(request.GET)
@@ -66,3 +68,54 @@ def font_times(request):
         form = FontTimesForm()
 
     return render(request, "font_times.html", {"form": form, "result": result})
+
+
+def no_teen_sum(request):
+    result = None
+    if request.method == "GET":
+        form = NoTeenSumForm(request.GET)
+        if form.is_valid():
+            numbers = [
+                form.cleaned_data["a"],
+                form.cleaned_data["b"],
+                form.cleaned_data["c"],
+            ]
+            result = sum(n if n < 13 or n > 19 or n in [15, 16] else 0 for n in numbers)
+    else:
+        form = NoTeenSumForm()
+
+    return render(request, "no_teen_sum.html", {"form": form, "result": result})
+
+
+def xyz_there(request):
+    def check_xyz(word):
+        return "xyz" in word and not ".xyz" in word
+
+    result = None
+    if request.method == "GET":
+        form = XyzThereForm(request.GET)
+        if form.is_valid():
+            word = form.cleaned_data["word"]
+            result = check_xyz(word)
+    else:
+        form = XyzThereForm()
+
+    return render(request, "xyz_there.html", {"form": form, "result": result})
+
+
+def centered_average(request):
+    def calculate_centered_average(nums):
+        nums = sorted(nums)
+        return sum(nums[1:-1]) // len(nums[1:-1])
+
+    result = None
+    if request.method == "GET":
+        form = CenteredAverageForm(request.GET)
+        if form.is_valid():
+            numbers = form.cleaned_data["numbers"]
+            numbers = list(map(int, numbers.split(',')))
+            result = calculate_centered_average(numbers)
+    else:
+        form = CenteredAverageForm()
+
+    return render(request, "centered_average.html", {"form": form, "result": result})

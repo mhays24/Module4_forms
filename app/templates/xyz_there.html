@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ There</title>
+</head>
+<body>
+    <form action="{% url 'xyz_there' %}" method="GET">
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    {% if result is not None %}
+    <p> Does the string contain 'xyz' not preceeded by a period?: {{ result }}</p>
+    {% endif %}
+</body>
+</html>

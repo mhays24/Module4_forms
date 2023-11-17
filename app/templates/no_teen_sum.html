@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Teen Sum</title>
+</head>
+<body>
+    <form action="{% url 'no_teen_sum' %}" method="GET">
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    {% if result is not None %}
+    <p> The sum is: {{ result }}</p>
+    {% endif %}
+</body>
+</html>
